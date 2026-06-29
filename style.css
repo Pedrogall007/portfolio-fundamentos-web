@@ -1,0 +1,220 @@
+/*
+   1. VARIÁVEIS DE TEMA (CLARO / ESCURO) 
+*/
+/* O :root define as variáveis padrão (tema claro) para todo o documento */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --nav-bg: #f4f4f4;
+}
+
+/* Quando a classe .dark-mode for adicionada ao <body>, estas variáveis substituem as do :root */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f4f4f4;
+    --nav-bg: #1f1f1f;
+}
+
+/* Aplicação base de estilos na página inteira 
+*/
+body {
+    /* Usa as variáveis definidas acima, permitindo a troca dinâmica */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    
+    /* Suaviza a transição de cores ao alternar entre tema claro e escuro */
+    transition: background 0.3s, color 0.3s;
+    
+    /* Espaço exato para o menu fixo não cobrir o conteúdo do topo da página */
+    padding-top: 75px; 
+    margin: 0; /* Remove as margens padrão do navegador */
+}
+
+/*
+   2. MENU DE NAVEGAÇÃO (NAVBAR MODERNA)
+*/
+header {
+    position: fixed; /* Trava o cabeçalho no topo da tela */
+    top: 0;
+    left: 0;
+    width: 100%; /* Faz o cabeçalho ocupar toda a largura da tela */
+    background-color: var(--nav-bg);
+    
+    /* Adiciona uma sombra leve embaixo do menu para dar sensação de profundidade */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    
+    /* Garante que o menu fique sempre por cima dos outros elementos da página */
+    z-index: 1000;
+}
+
+nav {
+    display: flex; /* Transforma o nav em um container flexível */
+    justify-content: space-between; /* Empurra o logotipo para um lado e os links para o outro */
+    align-items: center; /* Centraliza os itens verticalmente */
+    max-width: 1200px; /* Limita a largura máxima para não esticar muito em monitores grandes */
+    margin: 0 auto; /* Centraliza o nav na tela */
+    padding: 15px 20px; /* Espaçamento interno (cima/baixo e laterais) */
+}
+
+nav ul {
+    list-style: none; /* Remove as "bolinhas" padrão da lista */
+    display: flex; /* Coloca os itens da lista lado a lado */
+    gap: 30px; /* Define um espaço de 30px entre cada link do menu */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    color: var(--text-color);
+    font-weight: 600; /* Deixa a fonte um pouco mais grossa (semi-bold) */
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 6px; /* Arredonda as bordas do fundo do link */
+    
+    /* Prepara o link para uma animação suave quando o mouse passar por cima */
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse sobre os links do menu */
+nav ul li a:hover {
+    background-color: #007BFF; /* Fica azul */
+    color: #ffffff; /* O texto fica branco */
+}
+
+/*
+   3. BOTÃO DE ALTERNAR TEMA 
+*/
+#toggle-theme {
+    /* Cores invertidas em relação ao tema atual para dar destaque */
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: none; /* Remove a borda padrão do botão */
+    padding: 10px 24px;
+    border-radius: 25px; /* Deixa o botão em formato de pílula */
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer; /* Muda o cursor para "mãozinha" indicando que é clicável */
+    
+    /* Suaviza a mudança de cor, o tamanho (transform) e a sombra */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Efeito ao passar o mouse no botão de tema */
+#toggle-theme:hover {
+    background-color: #007BFF;
+    color: white;
+    transform: scale(1.05); /* Aumenta o tamanho do botão em 5% dando um efeito de "pulo" */
+}
+
+/*
+   4. DIAGRAMAÇÃO DE CONTEÚDO (CONTAINERS)
+*/
+.container {
+    max-width: 1200px; /* Mantém o conteúdo alinhado com a largura máxima do menu */
+    margin: 0 auto; /* Centraliza o container na página */
+    padding: 20px;
+}
+
+.section-content {
+    padding: 60px 0; /* Dá respiro (espaço) em cima e embaixo de cada seção */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Linha divisória sutil no final da seção */
+}
+
+/* Ajusta a cor da linha divisória para ficar visível, mas suave, no modo escuro */
+body.dark-mode .section-content {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/*
+   5. GRIDS E CARDS (PORTFÓLIO E FORMAÇÃO)
+*/
+.portfolio-grid {
+    display: flex; /* Ativa o flexbox para organizar os cartões */
+    flex-wrap: wrap; /* Permite que os cartões quebrem para a linha de baixo se faltar espaço */
+    gap: 20px; /* Espaço entre os cartões */
+    margin-top: 20px;
+}
+
+.projeto-item, .card-formacao {
+    /* flex: flex-grow | flex-shrink | flex-basis 
+       Cresce (1), encolhe (1) e tenta ocupar 45% da tela, descontando o gap de 20px. 
+       Isso cria um layout de 2 colunas.
+    */
+    flex: 1 1 calc(45% - 20px); 
+    min-width: 280px; /* Garante que em telas pequenas (celular), ele ocupe 100% da linha e não esmague */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Bordas arredondadas */
+    background-color: rgba(0, 0, 0, 0.02); /* Fundo levemente escurecido */
+    transition: transform 0.2s; /* Prepara para animações (ex: hover no futuro) */
+}
+
+/* Estilo específico dos cartões quando o modo escuro está ativo */
+body.dark-mode .projeto-item, body.dark-mode .card-formacao {
+    border-color: #333;
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo levemente clareado */
+}
+
+/* Botões dentro dos projetos */
+.btn-projeto {
+    display: inline-block; /* Permite aplicar margin e padding em um link <a> */
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn-projeto:hover {
+    background-color: #0056b3; /* Tom de azul mais escuro no hover */
+}
+
+/*
+   6. FORMULÁRIO DE CONTATO
+*/
+.form-estilizado {
+    max-width: 600px; /* Impede que o formulário fique largo demais na tela */
+    margin-top: 20px;
+}
+
+.campo-grupo {
+    margin-bottom: 15px; /* Espaço entre cada campo do formulário */
+    display: flex;
+    flex-direction: column; /* Coloca a label em cima do input */
+}
+
+.campo-grupo label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.campo-grupo input, .campo-grupo textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    
+    /* Herda as cores do tema atual (claro ou escuro) */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: inherit; /* Puxa a fonte Arial/sans-serif do body */
+}
+
+.btn-enviar {
+    padding: 10px 20px;
+    background-color: #28a745; /* Verde para botão de sucesso/envio */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn-enviar:hover {
+    background-color: #218838; /* Verde mais escuro no hover */
+}

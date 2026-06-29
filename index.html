@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Pedro Henrique</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre mim</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <button id="toggle-theme">Alternar Tema</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="sobre" class="section-content">
+            <div class="container">
+                <h2>Sobre Mim</h2>
+                <div class="sobre-layout">
+                    <div class="sobre-texto">
+                        <p>Olá! Meu nome é <strong>Pedro Henrique Leite dos Santos</strong>. Sou um desenvolvedor em formação residente em Ibiúna, São Paulo, focado em engenharia de software, automações e lógica de back-end.</p>
+                        <p>Busco constantemente aprimorar as minhas competências técnicas resolvendo problemas reais através do código. Atualmente, dedico-me à criação de scripts robustos em Python e ao estudo avançado do idioma inglês focado no ecossistema técnico e internacional.</p>
+                        <h3>Hobbies & Interesses</h3>
+                        <ul>
+                            <li><strong>Jogos Eletrônicos e Animes</strong></li>
+                            <li><strong>Hardware e PC Building</strong></li>
+                            <li><strong>Cultura Japonesa (Estudo de Hiragana/Kanji)</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="formacao" class="section-content">
+            <div class="container">
+                <h2>Formação Acadêmica e Cursos</h2>
+                
+                <div class="card-formacao">
+                    <h3>Graduação em Engenharia de Software</h3>
+                    <p class="instituicao">Uninter</p>
+                    <p class="periodo">Em andamento (1º Ano - Último Semestre)</p>
+                    <p>Foco em engenharia de requisitos, arquitetura de sistemas, lógica computacional e projetos práticos voltados para a web e back-end.</p>
+                </div>
+
+                <div class="card-formacao">
+                    <h3>Metodologia Prática e Resolução de Problemas</h3>
+                    <p class="instituicao">Participação no Processo Seletivo - 42 São Paulo</p>
+                    <p class="periodo">2026</p>
+                    <p>Experiência imersiva com metodologias de aprendizagem ativa (peer-to-peer), trabalho em equipe sob pressão e algoritmos de alta complexidade.</p>
+                </div>
+
+                <div class="card-formacao">
+                    <h3>Idiomas e Conhecimentos Adicionais</h3>
+                    <ul>
+                        <li><strong>Python Avançado/Fundação:</strong> Desenvolvimento de scripts para consumo de APIs em tempo real, manipulação de estruturas complexas (Dicionários/JSON) e tratamento de exceções.</li>
+                        <li><strong>Inglês Avançado:</strong> Fluidez total para leitura de documentações técnicas, APIs, artigos e escrita de código/documentação (READMEs).</li>
+                        <li><strong>Fundamentos Web & Versionamento:</strong> Domínio estrutural de HTML5, estilização moderna com CSS3 (Flexbox/Responsividade) e controle de versão profissional com Git e GitHub.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section-content">
+            <div class="container">
+                <h2>Portfólio e Projetos</h2>
+                <p>Abaixo estão listados alguns dos principais projetos que desenvolvi para consolidar minha stack tecnológica:</p>
+                
+                <div class="portfolio-grid">
+                    <div class="projeto-item">
+                        <h3>Real-Time Currency Converter</h3>
+                        <p>Script em Python focado em finanças que consome uma API global via requisições HTTP para converter cotações de BRL para JPY e USD em tempo real, manipulando payloads JSON.</p>
+                        <a href="https://github.com/Pedrogall007" target="_blank" class="btn-projeto">Ver Repositório GitHub</a>
+                    </div>
+
+                    <div class="projeto-item">
+                        <h3>Hiragana Quiz Game</h3>
+                        <p>Aplicação interativa rodando via terminal baseada em um motor de sorteio aleatório e dicionários Python para auxiliar no aprendizado e memorização do alfabeto japonês.</p>
+                        <a href="https://github.com/Pedrogall007/Game-Hiragana" target="_blank" class="btn-projeto">Ver Repositório GitHub</a>
+                    </div>
+
+                    <div class="projeto-item">
+                        <h3>CLI To-Do List (CRUD)</h3>
+                        <p>Aplicação em linha de comando desenvolvida em Python para gerenciamento de tarefas, aplicando conceitos de persistência de dados local através de leitura/gravação em arquivos JSON.</p>
+                        <a href="https://github.com/Pedrogall007/CLI-json" target="_blank" class="btn-projeto">Ver Repositório GitHub</a>
+                    </div>
+
+                    <div class="projeto-item">
+                        <h3>Este Portfólio Web Responsivo</h3>
+                        <p>Interface moderna construída do zero com HTML5 semântico, estilização modular em CSS3 e manipulação dinâmica do DOM via JavaScript para o controle de temas.</p>
+                        <a href="https://github.com/Pedrogall007/Fist-test-in-HTML" target="_blank" class="btn-projeto">Ver Código-Fonte</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section-content">
+            <div class="container">
+                <h2>Contato</h2>
+                <p>Entre em contato preenchendo o formulário abaixo ou envie diretamente para o e-mail cadastrado.</p>
+                
+                <form id="form-contato" class="form-estilizado" action="mailto:pedrosantos112007@gmail.com" method="post" enctype="text/plain">
+                    
+                    <div class="campo-grupo">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Insira o seu nome completo" required>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" rows="6" placeholder="Escreva aqui a sua mensagem..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
